@@ -49,35 +49,44 @@ ScrollReveal({
 });
 
 ScrollReveal().reveal('.home-content, .heading', {origin: 'top'});
-ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .skillbars, .contact form',{ origin: 'bottom'});
+ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .skills-tabs, .certificate-card, .contact form',{ origin: 'bottom'});
 ScrollReveal().reveal('.home-content h1, .about-img',{ origin: 'left'});
 ScrollReveal().reveal('.home-content p, .about-content',{ origin: 'right'});
 
-/* ========== SKILL BAR ANIMATION ========== */
-/* Animates each skill bar from 0% to the percent stored in data-percent. */
-const skillBars = document.querySelectorAll('.skill-bar');
+/* ========== SKILL TABS ========== */
+/* Shows the development story for the selected skill. Arrow keys also move between tabs. */
+const skillTabs = document.querySelectorAll('.skill-tab');
+const skillPanels = document.querySelectorAll('.skill-panel');
 
-const showSkillBars = () => {
-  skillBars.forEach((bar) => {
-    bar.style.setProperty('--skill-percent', `${bar.dataset.percent}%`);
-    bar.classList.add('animate');
+const activateSkillTab = (tab) => {
+  skillTabs.forEach((item) => {
+    const isSelected = item === tab;
+    item.classList.toggle('active', isSelected);
+    item.setAttribute('aria-selected', isSelected);
+    item.tabIndex = isSelected ? 0 : -1;
+  });
+
+  skillPanels.forEach((panel) => {
+    const isSelected = panel.id === tab.dataset.tab;
+    panel.classList.toggle('active', isSelected);
+    panel.hidden = !isSelected;
   });
 };
 
-const skillsSection = document.querySelector('#skills');
-
-if ('IntersectionObserver' in window && skillsSection) {
-  /* Starts the bar animation when the skills section scrolls into view. */
-  const skillsObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        showSkillBars();
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.35 });
-  skillsObserver.observe(skillsSection);
-} else { showSkillBars(); }
+skillTabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => activateSkillTab(tab));
+  tab.addEventListener('keydown', (event) => {
+    if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    let nextIndex = index;
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % skillTabs.length;
+    if (event.key === 'ArrowLeft') nextIndex = (index - 1 + skillTabs.length) % skillTabs.length;
+    if (event.key === 'Home') nextIndex = 0;
+    if (event.key === 'End') nextIndex = skillTabs.length - 1;
+    skillTabs[nextIndex].focus();
+    activateSkillTab(skillTabs[nextIndex]);
+  });
+});
 
 /* ========== TYPED TEXT ========== */
 /* Creates looping typing animations for the home and about section text. */

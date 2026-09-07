@@ -28,6 +28,7 @@
         <a href="#about">About</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#skills">Skills</a>
+        <a href="#certificates">Certificates</a>
         <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -134,33 +135,68 @@
     </div>
   </section>
 
-  <!-- ========== SKILLS BAR ========== -->
-  <!-- Shows programming skills using animated percentage bars. -->
+  <!-- ========== SKILLS ========== -->
+  <!-- Select a skill to learn where it was developed. -->
    <section class = "skills" id = "skills">
-
-    <!-- A section showcasing my current skillsets and mastery over specific topics via a percent -->
-    <h2 class = "heading"><span>Skills</span></h2>
-    <div class="skillbars">
-      <p>Java</p>
-      <div class="container">
-        <div class="skill-bar java" data-percent="90">90%</div>
-      </div>
-      <p>Python</p>
-      <div class="container">
-        <div class="skill-bar python" data-percent="80">80%</div>
+    <h2 class = "heading">My <span>Skills</span></h2>
+    <p class="section-intro">Select a skill to see how I built experience with it.</p>
+    <div class="skills-tabs" data-tabs>
+      <div class="tab-list" role="tablist" aria-label="Skills">
+        <button class="skill-tab active" role="tab" id="java-tab" aria-selected="true" aria-controls="java-panel" data-tab="java-panel">Java</button>
+        <button class="skill-tab" role="tab" id="python-tab" aria-selected="false" aria-controls="python-panel" data-tab="python-panel" tabindex="-1">Python</button>
+        <button class="skill-tab" role="tab" id="javascript-tab" aria-selected="false" aria-controls="javascript-panel" data-tab="javascript-panel" tabindex="-1">JavaScript</button>
+        <button class="skill-tab" role="tab" id="csharp-tab" aria-selected="false" aria-controls="csharp-panel" data-tab="csharp-panel" tabindex="-1">C#</button>
       </div>
 
-      <p>Javascript</p>
-      <div class="container">
-        <div class="skill-bar js" data-percent="65">65%</div>
-      </div>
-
-      <p>C#</p>
-      <div class="container">
-        <div class="skill-bar csharp" data-percent="60">60%</div>
-      </div>
+      <article class="skill-panel active" role="tabpanel" id="java-panel" aria-labelledby="java-tab">
+        <span class="panel-label">Featured skill</span>
+        <h3>Java</h3>
+        <p>I developed Java through object-oriented programming coursework and by building game projects such as Dungeon Crawl. It taught me to turn larger ideas into organized classes, gameplay systems, and reusable code.</p>
+        <span class="skill-level">Strong foundation</span>
+      </article>
+      <article class="skill-panel" role="tabpanel" id="python-panel" aria-labelledby="python-tab" hidden>
+        <span class="panel-label">Featured skill</span>
+        <h3>Python</h3>
+        <p>I built my Python foundation through coursework and independent problem-solving. I use it to practise clean program logic, automation concepts, and writing readable solutions efficiently.</p>
+        <span class="skill-level">Developing expertise</span>
+      </article>
+      <article class="skill-panel" role="tabpanel" id="javascript-panel" aria-labelledby="javascript-tab" hidden>
+        <span class="panel-label">Featured skill</span>
+        <h3>JavaScript</h3>
+        <p>I developed JavaScript while building this portfolio and other web experiences. It helps me add interactive behaviour, responsive navigation, animations, and user-focused details to a page.</p>
+        <span class="skill-level">Developing expertise</span>
+      </article>
+      <article class="skill-panel" role="tabpanel" id="csharp-panel" aria-labelledby="csharp-tab" hidden>
+        <span class="panel-label">Featured skill</span>
+        <h3>C#</h3>
+        <p>I have developed C# through programming practice and project work, strengthening my understanding of object-oriented design, debugging, and creating structured application logic.</p>
+        <span class="skill-level">Growing skill set</span>
+      </article>
     </div>
    </section>
+
+  <!-- ========== CERTIFICATES ========== -->
+  <!-- Copy a certificate-card below and update its title, issuer, date, and link to add another credential. -->
+  <section class="certificates" id="certificates">
+    <h2 class="heading">My <span>Certificates</span></h2>
+    <p class="section-intro">A growing collection of professional learning and accomplishments.</p>
+    <div class="certificate-grid">
+      <article class="certificate-card">
+        <div class="certificate-icon"><i class='bx bxl-linkedin-square' aria-hidden="true"></i></div>
+        <p class="certificate-source">LinkedIn Learning</p>
+        <h3>Add your first certificate</h3>
+        <p>Replace this text with your certificate title, issuing organization, and completion date.</p>
+        <a class="certificate-link" href="https://www.linkedin.com/in/alvinpaul2026/?skipRedirect=true" target="_blank" rel="noopener noreferrer">View credential <i class='bx bx-link-external' aria-hidden="true"></i></a>
+      </article>
+      <article class="certificate-card certificate-card--template">
+        <div class="certificate-icon"><i class='bx bx-plus-circle' aria-hidden="true"></i></div>
+        <p class="certificate-source">Ready for your next achievement</p>
+        <h3>New certificate</h3>
+        <p>Copy this card in <code>index.html</code>, then add your LinkedIn credential link when you earn a new certificate.</p>
+        <a class="certificate-link" href="https://www.linkedin.com/in/alvinpaul2026/?skipRedirect=true" target="_blank" rel="noopener noreferrer">Visit LinkedIn <i class='bx bxl-linkedin-square' aria-hidden="true"></i></a>
+      </article>
+    </div>
+  </section>
 
   <!-- ========== CONTACT FORM ========== -->
   <!-- Contact form that sends visitor messages through EmailJS. -->
