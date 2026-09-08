@@ -49,9 +49,44 @@ ScrollReveal({
 });
 
 ScrollReveal().reveal('.home-content, .heading', {origin: 'top'});
-ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .skills-tabs, .certificate-card, .contact form',{ origin: 'bottom'});
+ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .skills-tabs, .certificate-card, .experience-card, .contact form',{ origin: 'bottom'});
 ScrollReveal().reveal('.home-content h1, .about-img',{ origin: 'left'});
 ScrollReveal().reveal('.home-content p, .about-content',{ origin: 'right'});
+
+/* ========== PROJECT STATUS TABS ========== */
+/* Separates completed work from projects that are still in development. */
+const projectTabs = document.querySelectorAll('.project-tab');
+const projectPanels = document.querySelectorAll('.project-panel');
+
+const activateProjectTab = (tab) => {
+  projectTabs.forEach((item) => {
+    const isSelected = item === tab;
+    item.classList.toggle('active', isSelected);
+    item.setAttribute('aria-selected', isSelected);
+    item.tabIndex = isSelected ? 0 : -1;
+  });
+
+  projectPanels.forEach((panel) => {
+    const isSelected = panel.id === tab.dataset.projectTab;
+    panel.classList.toggle('active', isSelected);
+    panel.hidden = !isSelected;
+  });
+};
+
+projectTabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => activateProjectTab(tab));
+  tab.addEventListener('keydown', (event) => {
+    if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    let nextIndex = index;
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % projectTabs.length;
+    if (event.key === 'ArrowLeft') nextIndex = (index - 1 + projectTabs.length) % projectTabs.length;
+    if (event.key === 'Home') nextIndex = 0;
+    if (event.key === 'End') nextIndex = projectTabs.length - 1;
+    projectTabs[nextIndex].focus();
+    activateProjectTab(projectTabs[nextIndex]);
+  });
+});
 
 /* ========== SKILL TABS ========== */
 /* Shows the development story for the selected skill. Arrow keys also move between tabs. */
