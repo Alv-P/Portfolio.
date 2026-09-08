@@ -91,6 +91,23 @@ projectTabs.forEach((tab, index) => {
   });
 });
 
+/* Starts the current-project reveal only once its hidden tab becomes visible on screen. */
+const currentProjectCard = document.querySelector('.portfolio-container--current .portfolio-box');
+
+if ('IntersectionObserver' in window && currentProjectCard) {
+  const currentProjectObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-current-project');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  currentProjectObserver.observe(currentProjectCard);
+} else if (currentProjectCard) {
+  currentProjectCard.classList.add('reveal-current-project');
+}
+
 /* ========== SKILL TABS ========== */
 /* Shows the development story for the selected skill. Arrow keys also move between tabs. */
 const skillTabs = document.querySelectorAll('.skill-tab');

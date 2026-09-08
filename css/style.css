@@ -250,7 +250,7 @@ section{
 }
 
 .portfolio-container--current{
-  max-width: 36rem;
+  width: min(100%, 90rem);
   margin: 0 auto;
   grid-template-columns: 1fr;
 }
@@ -260,11 +260,20 @@ section{
   transform: translateY(0);
 }
 
-/* Keep cards in hidden tab panels out of ScrollReveal's initial hidden state. */
-.portfolio-container--current .portfolio-box{
-  visibility: visible !important;
-  opacity: 1 !important;
-  transform: none !important;
+/* The current-project card animates only after its initially hidden tab is opened. */
+.portfolio-container--current .portfolio-box.reveal-current-project{
+  animation: revealCurrentProject .7s ease-out both;
+}
+
+@keyframes revealCurrentProject{
+  from{
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .portfolio-container{
