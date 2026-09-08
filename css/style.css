@@ -250,7 +250,7 @@ section{
 }
 
 .portfolio-container--current{
-  width: min(100%, 90rem);
+  width: min(100%, 120rem);
   margin: 0 auto;
   grid-template-columns: 1fr;
 }
