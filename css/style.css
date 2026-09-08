@@ -260,6 +260,13 @@ section{
   transform: translateY(0);
 }
 
+/* Keep cards in hidden tab panels out of ScrollReveal's initial hidden state. */
+.portfolio-container--current .portfolio-box{
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 .portfolio-container{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
