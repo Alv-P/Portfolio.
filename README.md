@@ -1,7 +1,7 @@
 # Personal Portfolio Website
 
 ## Project Description
-This project is a responsive personal portfolio website built with HTML, CSS, and JavaScript. It includes home, about, project portfolio, skills, and contact form sections, each with their unique functionalites.
+This project is a responsive personal portfolio website built with HTML, CSS, and JavaScript. It includes home, about, project portfolio, skills, certificates, contact form sections, and much more each with their unique functionalities.
 
 ## Run Instructions
 1. Download or clone this repository.
@@ -16,4 +16,4 @@ This project is a responsive personal portfolio website built with HTML, CSS, an
 
 ## Credits
 - Tutorial: [Build a Complete Responsive Personal Portfolio Website using HTML CSS Javascript](https://www.youtube.com/watch?v=Tkp3FDgOueM)
-- Skill bar animation help: [Codex | AI Coding Partner from OpenAI | OpenAI](https://openai.com/codex/)
+- Animation help: [Codex | AI Coding Partner from OpenAI | OpenAI](https://openai.com/codex/)
