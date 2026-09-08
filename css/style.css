@@ -255,6 +255,11 @@ section{
   grid-template-columns: 1fr;
 }
 
+/* The active project is shown with its details already open. */
+.portfolio-container--current .portfolio-layer{
+  transform: translateY(0);
+}
+
 .portfolio-container{
   display: grid;
   grid-template-columns: repeat(3, 1fr);

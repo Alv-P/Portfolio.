@@ -41,17 +41,20 @@ window.onscroll = () => {
 
 /* ========== SCROLL REVEAL ========== */
 /* Adds entrance animations as sections appear on the screen. */
-ScrollReveal({
-  reset: true,
-  distance: '80px',
-  duration: 2000,
-  delay: 200
-});
+/* The interactive page controls still work if the optional animation library is unavailable. */
+if (window.ScrollReveal) {
+  ScrollReveal({
+    reset: true,
+    distance: '80px',
+    duration: 2000,
+    delay: 200
+  });
 
-ScrollReveal().reveal('.home-content, .heading', {origin: 'top'});
-ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .skills-tabs, .certificate-card, .experience-card, .contact form',{ origin: 'bottom'});
-ScrollReveal().reveal('.home-content h1, .about-img',{ origin: 'left'});
-ScrollReveal().reveal('.home-content p, .about-content',{ origin: 'right'});
+  ScrollReveal().reveal('.home-content, .heading', {origin: 'top'});
+  ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .skills-tabs, .certificate-card, .experience-card, .contact form',{ origin: 'bottom'});
+  ScrollReveal().reveal('.home-content h1, .about-img',{ origin: 'left'});
+  ScrollReveal().reveal('.home-content p, .about-content',{ origin: 'right'});
+}
 
 /* ========== PROJECT STATUS TABS ========== */
 /* Separates completed work from projects that are still in development. */
