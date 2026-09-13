@@ -13,7 +13,3 @@ This project is a responsive personal portfolio website built with HTML, CSS, an
 - `css/style.css` contains the styling and responsive layout.
 - `js/main.js` contains the interactive features and animations.
 - `assets/` contains the images used on the website.
-
-## Credits
-- Tutorial: [Build a Complete Responsive Personal Portfolio Website using HTML CSS Javascript](https://www.youtube.com/watch?v=Tkp3FDgOueM)
-- Animation help: [Codex | AI Coding Partner from OpenAI | OpenAI](https://openai.com/codex/)
